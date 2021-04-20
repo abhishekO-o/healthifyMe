@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Wellness Quotient</string>
+    <string name="app_quote">Your self recognition expedition</string>
+    <string name="get" translatable="false">Get Started</string>
+    <string name="started">Started</string>
+    <string name="title_activity_water_reminder_main">waterReminderMain</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

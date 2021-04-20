@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00458B</color>
+    <color name="colorAccent">#FFCB08</color>
+    <color name="abc">#B3FDFBFB</color>
+    <color name="period_starts">#800080</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="beige">#ffecbc</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="theme">#5A5FF8</color>
+    <color name="theme1">#DE5A5FF8</color>
+    <color name="theme2">#C45A5FF8</color>
+    <color name="theme3">#AB5A5FF8</color>
+    <color name="theme4">#915A5FF8</color>
+    <color name="theme5">#785A5FF8</color>
+    <color name="theme6">#5E5A5FF8</color>
+    <color name="theme7">#455A5FF8</color>
+    <color name="theme8">#405A5FF8</color>
+    <color name="theme9">#3B5A5FF8</color>
+    <color name="theme10">#365A5FF8</color>
+    <color name="yellowTheme">#FFF065</color>
+    <color name="seekbar1">#CC1FF188</color>
+    <color name="seekbar2">#FFE600</color>
+</resources>

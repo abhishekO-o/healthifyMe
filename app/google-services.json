@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "137163359268",
+    "firebase_url": "https://wellnessquotient-b9f97.firebaseio.com",
+    "project_id": "wellnessquotient-b9f97",
+    "storage_bucket": "wellnessquotient-b9f97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137163359268:android:f2d5811d33b39a398184b1",
+        "android_client_info": {
+          "package_name": "com.wolfie.checkingin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137163359268-hcft144nc198vrps8ktor6hcvm4sa35h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wolfie.checkingin",
+            "certificate_hash": "1fdda49cc49136bc1e13ea33f334f6bb9ea9050d"
+          }
+        },
+        {
+          "client_id": "137163359268-v71vvb7csc75sj7db3arp7jn2iq5qljp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvJrNooZabEzPJXPaK5R7z3cqRZ0ZMwSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137163359268-v71vvb7csc75sj7db3arp7jn2iq5qljp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

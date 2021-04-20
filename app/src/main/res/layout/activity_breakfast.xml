@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".breakfast">
+
+
+    <Button
+        android:id="@+id/bbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/buttonrounded"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/bbutton"
+        app:layout_constraintEnd_toEndOf="@+id/bbutton" />
+
+    <EditText
+        android:id="@+id/breakfasttxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:backgroundTint="#FF00458B"
+        android:ems="10"
+        android:hint="Food item"
+        android:inputType="text"
+        android:textColor="#FF00458B"
+        android:textColorHighlight="#FF00458B"
+        android:textColorHint="#FBC02D"
+        app:layout_constraintBottom_toTopOf="@+id/bcalories"
+        app:layout_constraintStart_toStartOf="@+id/bcalories" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+
+        android:layout_height="484dp"
+
+        android:layout_marginTop="96dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ListView
+            android:id="@+id/blist"
+            android:layout_width="wrap_content"
+            android:layout_height="322dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="144dp"
+            android:textColor="#FF00458B"
+            android:textColorHighlight="#FF00458B"
+            android:textColorHint="#FBC02D"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/breakfast"
+            app:layout_constraintVertical_bias="0.171" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/breakfast"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FF00458B"
+        android:text="  Breakfast"
+        android:textAlignment="gravity"
+        android:textColor="#FBC02D"
+        android:textColorHighlight="#FBC02D"
+        android:textColorHint="#FBC02D"
+        android:textColorLink="#FBC02D"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/history"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/bcalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="11dp"
+        android:backgroundTint="#FF00458B"
+        android:ems="10"
+        android:hint="Total calorie"
+        android:inputType="number"
+        android:textColor="#FF00458B"
+        android:textColorHighlight="#FF00458B"
+        android:textColorHint="#FBC02D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bbutton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonrounded"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bcalories" />
+
+    <TextView
+        android:id="@+id/bcal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="7dp"
+        android:text="               "
+        android:textAlignment="gravity"
+        android:textColor="#FBC02D"
+        android:textColorHighlight="#FBC02D"
+        android:textColorHint="#FBC02D"
+        android:textColorLink="#FBC02D"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/breakfast"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="66dp"
+        android:text="History"
+        android:textAlignment="gravity"
+        android:textColor="#FBC02D"
+        android:textColorHighlight="#FBC02D"
+        android:textColorHint="#FBC02D"
+        android:textColorLink="#FBC02D"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/breakfast"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

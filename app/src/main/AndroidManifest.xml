@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wolfie.checkingin">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".PeriodTracker"></activity>
+        <activity android:name=".historysnacks" />
+        <activity android:name=".historydinner" />
+        <activity android:name=".historylunch" />
+        <activity android:name=".Activities" />
+        <activity android:name=".Energy" />
+        <activity android:name=".Feeling" />
+        <activity android:name=".Goals" />
+        <activity android:name=".MoodGraph" />
+        <activity android:name=".Result" />
+        <activity android:name=".ManageGoals" />
+        <activity
+            android:name=".fragment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".display"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".history"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".waterReminderMain"
+            android:label="@string/title_activity_water_reminder_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".mainapp.Onboard" />
+        <activity android:name=".mainapp.login" />
+        <activity android:name=".mainapp.register" />
+        <activity android:name=".mainapp.BasicQues" />
+        <activity android:name=".mainapp.whatbringsyoutowq" />
+        <activity android:name=".mainapp.welcometowq" />
+        <activity android:name=".mainapp.whatsyourname" />
+        <activity android:name=".mainapp.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

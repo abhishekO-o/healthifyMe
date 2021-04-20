@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/logout"
+        android:title="Logout" />
+    <item
+        android:id="@+id/see_history"
+        android:title="See History" />
+
+    <item android:id="@+id/manage_goals"
+        android:title="Manage Goals"/>
+    <item android:id="@+id/donation"
+        android:title="Donation for Developer"/>
+
+</menu>

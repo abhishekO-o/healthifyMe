@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lunch">
+
+
+    <Button
+        android:id="@+id/lbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/buttonrounded"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/lbutton"
+        app:layout_constraintEnd_toEndOf="@+id/lbutton" />
+
+    <EditText
+        android:id="@+id/lunchtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#FF00458B"
+        android:ems="10"
+        android:hint="Food item"
+        android:inputType="text"
+        android:textColor="#FF00458B"
+        android:textColorHighlight="#FF00458B"
+        android:textColorHint="#FBC02D"
+        app:layout_constraintBottom_toTopOf="@+id/lcalories"
+        app:layout_constraintStart_toStartOf="@+id/lcalories" />
+
+
+    <ListView
+        android:id="@+id/llist"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#FF00458B"
+        android:textColorHighlight="#FF00458B"
+        android:textColorHint="#FBC02D"
+        app:layout_constraintBottom_toTopOf="@+id/lunchtxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lunch" />
+
+    <TextView
+        android:id="@+id/lunch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FF00458B"
+        android:text="  Lunch"
+        android:textAlignment="gravity"
+        android:textColor="#FBC02D"
+        android:textColorHighlight="#FBC02D"
+        android:textColorHint="#FBC02D"
+        android:textColorLink="#FBC02D"
+
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/historylunch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/lcalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="13dp"
+        android:backgroundTint="#FF00458B"
+        android:ems="10"
+        android:hint="Total calorie"
+        android:inputType="number"
+        android:textColor="#FF00458B"
+        android:textColorHighlight="#FF00458B"
+        android:textColorHint="#FBC02D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lbutton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/lbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonrounded"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lcalories" />
+
+    <TextView
+        android:id="@+id/lcal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="11dp"
+        android:text="               "
+        android:textAlignment="gravity"
+        android:textColor="#FBC02D"
+        android:textColorHighlight="#FBC02D"
+        android:textColorHint="#FBC02D"
+        android:textColorLink="#FBC02D"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/lunch"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/historylunch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="66dp"
+        android:text="History"
+        android:textAlignment="gravity"
+        android:textColor="#FBC02D"
+        android:textColorHighlight="#FBC02D"
+        android:textColorHint="#FBC02D"
+        android:textColorLink="#FBC02D"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/lunch"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
