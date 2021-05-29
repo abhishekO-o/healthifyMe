@@ -1,10 +1,8 @@
 package com.wolfie.checkingin;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -22,37 +22,37 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class lunch extends Fragment {
 
-    Button lbtn,lbutton;
-    EditText lunchtxt,lcalories;
+    Button lbtn, lbutton;
+    EditText lunchtxt, lcalories;
     ArrayList<String> list;
     ListView llist;
     ArrayAdapter<String> larrayAdapter;
-    TextView lcal,historylunch;
+    TextView lcal, historylunch;
     DatabaseReference mDatabaseReference;
-   public FirebaseAuth mAuth;
+    public FirebaseAuth mAuth;
+
     public lunch() {
         // Required empty public constructor
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater,final ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         super.onCreate(savedInstanceState);
 
         View root = inflater.inflate(R.layout.activity_lunch, container, false);
-        lbtn= root.findViewById(R.id.lbtn);
-        lunchtxt=root.findViewById(R.id.lunchtxt);
-        llist=root.findViewById(R.id.llist);
-        lcalories=root.findViewById(R.id.lcalories);
-        lbutton=root.findViewById(R.id.lbutton);
+        lbtn = root.findViewById(R.id.lbtn);
+        lunchtxt = root.findViewById(R.id.lunchtxt);
+        llist = root.findViewById(R.id.llist);
+        lcalories = root.findViewById(R.id.lcalories);
+        lbutton = root.findViewById(R.id.lbutton);
         lcal = root.findViewById(R.id.lcal);
-        historylunch=root.findViewById(R.id.historylunch);
+        historylunch = root.findViewById(R.id.historylunch);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -62,14 +62,17 @@ public class lunch extends Fragment {
         FirebaseUser user;
         user = mAuth.getCurrentUser();
         String uid = user.getUid();
-        mDatabaseReference= FirebaseDatabase.getInstance().getReference().child("Food&Calorie").child(uid).child(strdate).child("Lunch");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Food&Calorie").child(uid).child(strdate).child("Lunch");
 
         list = new ArrayList<String>();
-        larrayAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,list);
+        larrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list);
         lbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String lunch = lunchtxt.getText().toString();
+                Database obj = new Database();
+                String calForFood = obj.foodMap.get(lunch.toUpperCase()).toString();
+                lcalories.setText(calForFood + " KCal per 100 grams");
                 list.add(lunch);
                 llist.setAdapter(larrayAdapter);
                 larrayAdapter.notifyDataSetChanged();
@@ -87,28 +90,30 @@ public class lunch extends Fragment {
         historylunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(),historylunch.class);
+                Intent i = new Intent(getActivity(), historylunch.class);
                 startActivity(i);
             }
         });
         return root;
     }
-    public void storefood(){
+
+    public void storefood() {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String date = simpleDateFormat.format(calendar.getTime());
         String id = mDatabaseReference.push().getKey();
         String text = lunchtxt.getText().toString();
-        Db db=new Db(id,date,text);
+        Db db = new Db(id, date, text);
         mDatabaseReference.child(text).setValue(db);
     }
-    public void storecal(){
+
+    public void storecal() {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String date = simpleDateFormat.format(calendar.getTime());
         String id = mDatabaseReference.push().getKey();
         String text = lcal.getText().toString();
-        Db db=new Db(id,date,text);
+        Db db = new Db(id, date, text);
         mDatabaseReference.child(text).setValue(db);
     }
 }

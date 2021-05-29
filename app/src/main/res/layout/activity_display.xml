@@ -17,7 +17,7 @@
         android:textColor="#203288"
         android:textColorHighlight="#203288"
         android:textColorHint="#203288"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/btncontinue"

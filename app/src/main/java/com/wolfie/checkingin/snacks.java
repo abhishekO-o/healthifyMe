@@ -1,10 +1,8 @@
 package com.wolfie.checkingin;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,14 +24,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class snacks extends Fragment {
-    Button sbtn,sbutton;
-    EditText snackstxt,scalories;
+    Button sbtn, sbutton;
+    EditText snackstxt, scalories;
     ArrayList<String> list;
     ListView slist;
     ArrayAdapter<String> sarrayAdapter;
-    TextView scal,historysnacks;
+    TextView scal, historysnacks;
     DatabaseReference mDatabaseReference;
-   public FirebaseAuth mAuth;
+    public FirebaseAuth mAuth;
 
     public snacks() {
         // Required empty public constructor
@@ -39,19 +39,19 @@ public class snacks extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater,final ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         super.onCreate(savedInstanceState);
 
         View root = inflater.inflate(R.layout.activity_snacks, container, false);
-        sbtn= root.findViewById(R.id.sbtn);
-        snackstxt=root.findViewById(R.id.snackstxt);
-        sbutton=root.findViewById(R.id.sbutton);
-        slist=root.findViewById(R.id.slist);
-        scalories=root.findViewById(R.id.scalories);
+        sbtn = root.findViewById(R.id.sbtn);
+        snackstxt = root.findViewById(R.id.snackstxt);
+        sbutton = root.findViewById(R.id.sbutton);
+        slist = root.findViewById(R.id.slist);
+        scalories = root.findViewById(R.id.scalories);
         scal = root.findViewById(R.id.scal);
-        historysnacks=root.findViewById(R.id.historysnacks);
+        historysnacks = root.findViewById(R.id.historysnacks);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -61,14 +61,17 @@ public class snacks extends Fragment {
         FirebaseUser user;
         user = mAuth.getCurrentUser();
         String uid = user.getUid();
-        mDatabaseReference= FirebaseDatabase.getInstance().getReference().child("Food&Calorie").child(uid).child(strdate).child("Snacks");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Food&Calorie").child(uid).child(strdate).child("Snacks");
 
         list = new ArrayList<String>();
-        sarrayAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,list);
+        sarrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list);
         sbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String snacks = snackstxt.getText().toString();
+                Database obj = new Database();
+                String calForFood = obj.foodMap.get(snacks.toUpperCase()).toString();
+                scalories.setText(calForFood + " KCal per 100 grams");
                 list.add(snacks);
                 slist.setAdapter(sarrayAdapter);
                 sarrayAdapter.notifyDataSetChanged();
@@ -87,28 +90,30 @@ public class snacks extends Fragment {
         historysnacks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(),historysnacks.class);
+                Intent i = new Intent(getActivity(), historysnacks.class);
                 startActivity(i);
             }
         });
         return root;
     }
-    public void storefood(){
+
+    public void storefood() {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String date = simpleDateFormat.format(calendar.getTime());
         String id = mDatabaseReference.push().getKey();
         String text = snackstxt.getText().toString();
-        Db db=new Db(id,date,text);
+        Db db = new Db(id, date, text);
         mDatabaseReference.child(text).setValue(db);
     }
-    public void storecal(){
+
+    public void storecal() {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String date = simpleDateFormat.format(calendar.getTime());
         String id = mDatabaseReference.push().getKey();
         String text = scal.getText().toString();
-        Db db=new Db(id,date,text);
+        Db db = new Db(id, date, text);
         mDatabaseReference.child(text).setValue(db);
     }
 }
